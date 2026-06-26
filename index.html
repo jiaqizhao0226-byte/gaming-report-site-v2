@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行业月度汇报 - 投融资与核心洞察</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8fafc;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Modal Transitions */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95) translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modal.active .modal-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+        
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Header -->
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 mb-4">游戏行业月度观察汇报</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">聚焦近三个月国内外重点投融资进展，以及行业资本运作的核心趋势发现。</p>
+        </header>
+
+        <!-- Section 1: Recent Investments -->
+        <section class="mb-20">
+            <div class="flex items-center mb-8">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">近期重点投融资盘点 (近3个月)</h2>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+                <!-- Category 1: 全资收购 / 巨头资产剥离 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center border-l-4 border-blue-500 pl-3">全资收购 / 巨头资产剥离</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">字节跳动 60 亿美元出售沐瞳科技</h4>
+                                <div class="text-[10px] font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded">26/03</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">沙特 Savvy 全资收购沐瞳科技，成为今年全球游戏业最大单笔交易，字节回笼资金聚焦 AI。</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-white transition-colors relative overflow-hidden">
+                            <div class="absolute top-2 right-[-24px] bg-blue-500 text-white text-[8px] font-bold py-0.5 px-6 transform rotate-45">近期</div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm pr-6">阿里计划整体出售灵犀互娱</h4>
+                                <div class="text-[10px] font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded mr-5">26/06</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">作价约 70-90 亿元，已接触三七互娱、世纪华通等买家。阿里进一步聚焦核心主业。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: 战略投资 / 绑定核心制作人团队 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center border-l-4 border-rose-500 pl-3">战略投资 / 绑定核心制作人团队</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-rose-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">腾讯投资成都烽炊网络</h4>
+                                <div class="text-[10px] font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded shrink-0 ml-2">26/04</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">腾讯战略入股，代表作古风开放世界RPG《烽火与炊烟》，继续奉行绑定核心研发团队策略。</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-rose-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">米哈游与IDG投资微霄科技</h4>
+                                <div class="text-[10px] font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded shrink-0 ml-2">26/03</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">由出走的大厂高管创立，投后估值超 1 亿美元，体现“大厂投资+创业团队研发”的新模式。</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-rose-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">芥子游戏获数千万美元融资</h4>
+                                <div class="text-[10px] font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded shrink-0 ml-2">26/03</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">由前大厂总监创立，成立仅半年即获得大额早期融资，明星制作人成为资本市场“硬通货”。</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-rose-200 hover:bg-white transition-colors relative overflow-hidden">
+                            <div class="absolute top-2 right-[-24px] bg-rose-500 text-white text-[8px] font-bold py-0.5 px-6 transform rotate-45">近期</div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm pr-6">米哈游投资“璇子”新公司</h4>
+                                <div class="text-[10px] font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded shrink-0 ml-2 mr-5">26/06</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">米哈游联合砺思资本投资，聚焦 2D、女性向及故事驱动游戏研发。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: 产业链拓展 / IP收购 -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center border-l-4 border-purple-500 pl-3">产业链横向拓展 / IP 版图补全</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-white transition-colors relative overflow-hidden">
+                            <div class="absolute top-2 right-[-24px] bg-purple-500 text-white text-[8px] font-bold py-0.5 px-6 transform rotate-45">近期</div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm pr-6">宜搜科技收购梦之星</h4>
+                                <div class="text-[10px] font-bold text-purple-600 bg-purple-100 px-2 py-0.5 rounded mr-5">26/06</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">获取关键游戏牌照（网络文化、出版等许可证），补全移动游戏发行与出海版图，实现现金流并表。</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">阅文集团收购艺画开天股权</h4>
+                                <div class="text-[10px] font-bold text-purple-600 bg-purple-100 px-2 py-0.5 rounded shrink-0 ml-2">26/05</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">收购其 28.22% 股权以获得《灵笼》IP重要权益及游戏改编权，打造网文、动画、游戏IP闭环。</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">505 Games 收购《明末》IP</h4>
+                                <div class="text-[10px] font-bold text-purple-600 bg-purple-100 px-2 py-0.5 rounded shrink-0 ml-2">26/04</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">收购成都灵泽科技《明末：渊虚之羽》完整IP，加码中国单机大作全球发行。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 4: 新型买量融资 -->
+                <div>
+                    <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center border-l-4 border-emerald-500 pl-3">新型融资：海外休闲游戏 UA Funding 频发</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-emerald-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">Hitwicket (印度板球)</h4>
+                                <div class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded shrink-0 ml-2">26/04</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">获得 2000 万美元规模的 UA (User Acquisition) 专项买量融资。</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-emerald-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">Narcade (土耳其休闲)</h4>
+                                <div class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded shrink-0 ml-2">26/04</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">获得 1040 万美元的 UA 专项融资，资金来自海外专业数据分析及增长平台。</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-emerald-200 hover:bg-white transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-800 text-sm">Animal Suika (以色列合成)</h4>
+                                <div class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded shrink-0 ml-2">26/04</div>
+                            </div>
+                            <p class="text-slate-500 text-xs">合成类小游戏，获得 200 万美元买量专项融资，在验证模型后快速扩大规模。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <!-- Section 2: Core Findings -->
+        <section>
+            <div class="flex items-center mb-8">
+                <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                    <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">核心趋势发现</h2>
+                <p class="ml-4 text-sm text-slate-500 font-medium">(点击卡片查看详细分析)</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: 巨头剥离资产 -->
+                <a href="spinoff.html" class="block card-hover cursor-pointer bg-gradient-to-br from-white to-slate-50 border border-slate-200 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-bl-full -mr-16 -mt-16 opacity-50 transition-transform group-hover:scale-110"></div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">核心发现一：巨头剥离资产</h3>
+                    <p class="text-slate-500 mb-6 font-medium">游戏回归财务逻辑，并购窗口打开</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        国内互联网巨头重新聚焦主业，游戏资产从“战略棋子”被重新定义为“财务资产”。估值逻辑从“用户数×ARPU×增长预期”向“现金流折现”转变...
+                    </p>
+                    <div class="flex items-center text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                        查看深度图解 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </a>
+
+                <!-- Card 2: UA Funding -->
+                <a href="ua_funding.html" class="block card-hover cursor-pointer bg-gradient-to-br from-white to-slate-50 border border-slate-200 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-bl-full -mr-16 -mt-16 opacity-50 transition-transform group-hover:scale-110"></div>
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 text-emerald-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">核心发现二：UA Funding 崛起</h3>
+                    <p class="text-slate-500 mb-6 font-medium">海外休闲赛道的新型融资范式</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        在游戏投资式微大环境下，以用户获取(UA)为目的的融资崛起。解决买量现金流错配问题，通过数据管控消灭不确定性，资金在“验证后扩张”节点进入...
+                    </p>
+                    <div class="flex items-center text-emerald-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                        查看深度图解 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
